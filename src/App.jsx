@@ -23,7 +23,9 @@ const narutoCharactersMAL = {
   'Shikamaru Nara': 2007,
   'Kakashi Hatake': 85
 };
-
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 async function fetchData (setData) {
   const newArr = []
   for (const character in narutoCharactersMAL) {
@@ -34,6 +36,7 @@ async function fetchData (setData) {
     const kanji = data.data.name_kanji;
     const obj = {src: src, name: character, kanji: kanji}
     newArr.push(obj)
+    await sleep(100);
   }
   setData(newArr);
 }
