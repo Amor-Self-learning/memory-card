@@ -1,42 +1,80 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgb(20, 20, 20);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: calc(0.7rem + 0.4vw);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+h1 {
+  font-size: 2.5em;
+  line-height: 1.1;
 }
 
 .card {
-  padding: 2em;
+  color: inherit;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+   background-color: rgba(128, 128, 128, 0.2);
+}
+.card:hover {
+  border-color: #646cff;
+}
+.card:focus,
+.card:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
-.read-the-docs {
-  color: #888;
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 98vw;
+  padding: 1vh 1vw;
+}
+.flex-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(100px + 8vw), 1fr));
+  gap: 1rem;
+}
+.card > img{
+  width: 100%;
+  border-radius: 8px;
+}
+.card > div {
+  padding: 0.4em 0.8em;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255);
+  }
 }
