@@ -53,15 +53,23 @@ function App() {
   const [bestScore, setBestScore] = useState(0)
   const [arr, setArr] = useState([{null: true}])
   const [isLoading, setIsLoading] = useState(true)
+  const [tries, setTries] = useState(0)
   const setData = () => {
     if (arr[0].null) {
-      fetchData(setArr)
+    fetchData(setArr)
     .then( () => {
       const newArr = [...arr]
       newArr.forEach(element => {
       element.clicked = false
       setIsLoading(false)
-    })});}
+    })})
+    .catch((error) => {
+      setTries(tries + 1)
+      console.log (error)
+      console.log ("Retrying")
+      if (tries <= 5) fetchData(setArr);
+    });
+    }
     else {
       const newArr = [...arr]
       newArr.forEach(element => {
