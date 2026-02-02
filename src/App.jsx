@@ -52,6 +52,7 @@ function App() {
   const [score, setScore] = useState(0)
   const [bestScore, setBestScore] = useState(0)
   const [arr, setArr] = useState([{null: true}])
+  const [isLoading, setIsLoading] = useState(true)
   const setData = () => {
     if (arr[0].null) {
       fetchData(setArr)
@@ -59,6 +60,7 @@ function App() {
       const newArr = [...arr]
       newArr.forEach(element => {
       element.clicked = false
+      setIsLoading(false)
     })});}
     else {
       const newArr = [...arr]
@@ -79,6 +81,7 @@ function App() {
   useEffect (() => {
     setData()
   }, [])
+  if (!isLoading) {
   return (
     <>
     <div className='flex-row'>
@@ -106,6 +109,30 @@ function App() {
       </div>
     </>
   )
+  } else {
+    return (
+    <>
+    <div className='flex-row'>
+      <h1>Naruto Memory Card</h1>
+      <div className='flex-row'>
+        <p>Score: {score}</p>
+        <p>Best Score: {bestScore}</p>
+      </div>
+      </div>
+    <div class="cards-container">
+      {[...Array(12)].map((_, i) => (
+        <div key={i} className="card skeleton-card">
+          <div className="skeleton skeleton-img"></div>
+          <div>
+            <div className="skeleton skeleton-text"></div>
+            <div className="skeleton skeleton-text"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+    </>
+    )
+  }
 }
 
 export default App
