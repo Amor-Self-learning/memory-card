@@ -31,7 +31,6 @@ async function fetchData (setData) {
   for (const character in narutoCharactersMAL) {
     const resp = await fetch(`${JIKAN_API_EP}${narutoCharactersMAL[character]}`);
     const data = await resp.json();
-    console.log(data)
     const src = data.data.images.jpg.image_url;
     const kanji = data.data.name_kanji;
     const obj = {src: src, name: character, kanji: kanji}

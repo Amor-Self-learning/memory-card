@@ -10,8 +10,6 @@ function Card ({name, kanji, src, handleClick, clicked, index,arr, setArr, shuff
           const newArr = [...arr]
           newArr[index] = obj;
           shuffleArr(newArr, setArr)
-          console.table(arr)
-          console.table(newArr)
         } else {
           shuffleArr(arr, setArr)
         }
