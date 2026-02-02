@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import './App.css'
 import Card from './Card';
+import './App.css'
 
 const JIKAN_API_EP = 'https://api.jikan.moe/v4/characters/'
 const narutoCharactersMAL = {
   'Kaguya Otsutsuki': 108297,
-  'Hagoromo Otsutsuki (Sage of Six Paths)': 57883,
+  'Hagoromo Otsutsuki': 57883,
   'Madara Uchiha': 53901,
   'Obito Uchiha': 2910,
   'Hashirama Senju': 12464,
@@ -78,16 +78,18 @@ function App() {
   }, [])
   return (
     <>
-    <h1>Naruto Memory Card</h1>
-    <div>
-      <p>Score: {score}</p>
-      <p>Best Score: {bestScore}</p>
-    </div>
-    <div className='cards-container'>
+    <div className='flex-row'>
+      <h1>Naruto Memory Card</h1>
+      <div className='flex-row'>
+        <p>Score: {score}</p>
+        <p>Best Score: {bestScore}</p>
+      </div>
+      </div>
+      <div className='cards-container'>
       {arr.map((char, index) => (
         <Card 
           name={char.name} 
-          key={`${char.name}-${index}`} 
+          key={`${char.name} ${index}`} 
           kanji={char.kanji} 
           src={char.src} 
           handleClick={handleClick} 
@@ -98,7 +100,7 @@ function App() {
           shuffleArr={shuffleArr}
         ></Card>
       ))}
-    </div>
+      </div>
     </>
   )
 }
