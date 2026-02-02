@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Card from './Card';
+import Card from './Card.jsx';
 import './App.css'
 
 const JIKAN_API_EP = 'https://api.jikan.moe/v4/characters/'
