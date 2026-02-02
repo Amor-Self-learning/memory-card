@@ -1,6 +1,7 @@
 function Card ({name, kanji, src, handleClick, clicked, index,arr, setArr, shuffleArr}) {
   return (
     <div
+      className="card"
       id={name}
       onClick={() => {
         handleClick(clicked)
@@ -11,12 +12,16 @@ function Card ({name, kanji, src, handleClick, clicked, index,arr, setArr, shuff
           shuffleArr(newArr, setArr)
           console.table(arr)
           console.table(newArr)
+        } else {
+          shuffleArr(arr, setArr)
         }
       }}
     >
       <img src={src} alt={name}/>
-      <p>{name}</p>
-      <p>{kanji}</p>
+      <div>
+        <p>{name}</p>
+        <p>{kanji}</p>
+      </div>
     </div>
   )
 }
